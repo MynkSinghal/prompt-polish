@@ -71,7 +71,7 @@ const Index = () => {
         {/* Download CTA */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <a 
-            href="https://github.com/your-username/prompt-polish/releases" 
+            href="https://github.com/MynkSinghal/prompt-polish/releases/download/PromptPolish/PromptPolish-0.1.0.dmg" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-white text-black hover:bg-gray-200 text-xl font-bold px-12 py-4 rounded-full transition-all hover:scale-105 mb-6 cursor-pointer"
