@@ -85,7 +85,7 @@ const Demo = () => {
           {/* Title Section */}
           <div className="mb-16">
             <h1 className="font-['NeueMontreal'] text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 leading-tight">
-              See <span className="font-['Kalam'] italic font-normal text-purple-300">PromptPolish</span> in Action
+              See <span className="font-['Dancing_Script'] text-purple-300">PromptPolish</span> in Action
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto leading-relaxed font-light">
               Watch how PromptPolish transforms your messy thoughts into powerful, optimized prompts

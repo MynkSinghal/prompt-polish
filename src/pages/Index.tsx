@@ -19,17 +19,7 @@ const Index = () => {
 
   return (
     <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
-      {/* Load Neue Montreal Medium font */}
-      <style>
-        {`
-          @font-face {
-            font-family: 'NeueMontreal';
-            src: url('/NeueMontreal-Bold.otf') format('opentype');
-            font-weight: 500;
-            font-style: normal;
-          }
-        `}
-      </style>
+
 
       {/* Background using the specified gradient */}
       <div 
@@ -61,7 +51,7 @@ const Index = () => {
 
           {/* Main Headline - Adjusted size */}
           <h1 className="font-['NeueMontreal'] text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white mb-8 leading-tight">
-            Your brain is a <span className="font-['Kalam'] italic font-normal text-white">mess</span>.
+            Your brain is a <span className="font-['Dancing_Script'] text-white">mess</span>.
             <br />
             Your prompt doesn't have to be.
           </h1>
@@ -79,7 +69,7 @@ const Index = () => {
           {/* Title Section */}
           <div className="mb-12">
             <h1 className="font-['NeueMontreal'] text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-8 leading-tight">
-              See <span className="font-bold text-white">PromptPolish</span> in <span className="font-['Kalam'] italic font-normal text-white">action</span>
+              See <span className="font-bold text-white">PromptPolish</span> in <span className="font-['Dancing_Script'] text-white">action</span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-5xl mx-auto leading-relaxed font-light">
               Install Chrome extension, Select your text, right-click → <span className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 text-white/90 font-medium text-base">"Polish with PromptPolish"</span> to clean up your thoughts, sharpen your prompts, and get AI answers that actually make sense — all in one magical click.
@@ -122,7 +112,7 @@ const Index = () => {
                       <h2 className="font-['NeueMontreal'] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-12 leading-tight">
             Bad prompts = bad answers.
             <br />
-            Download the <span className="font-['Kalam'] italic font-normal text-white">fix</span>.
+            Download the <span className="font-['Dancing_Script'] text-white">fix</span>.
           </h2>
           
           {/* Download Button */}
