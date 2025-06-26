@@ -1,97 +1,152 @@
-import { Sparkles, Zap } from "lucide-react";
+import { useState, useRef } from "react";
+import { Sparkles, ArrowRight, Play, Pause, Command, CheckCircle, Zap, Download } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoPlay = () => {
+    if (videoRef.current) {
+      if (isVideoPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsVideoPlaying(!isVideoPlaying);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
-        
-        {/* Main Value Proposition */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight leading-tight">
-            PromptPolish
+    <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+      {/* Load Neue Montreal Medium font */}
+      <style>
+        {`
+          @font-face {
+            font-family: 'NeueMontreal';
+            src: url('/NeueMontreal-Bold.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+          }
+        `}
+      </style>
+
+      {/* Background using the specified gradient */}
+      <div 
+        className="fixed inset-0 z-0" 
+        style={{
+          backgroundImage: `url('/gradients/image 1274.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/20 z-0" />
+
+      {/* Header */}
+      <nav className="relative z-50 flex items-center justify-between px-6 py-6">
+        {/* Empty header for clean look */}
+      </nav>
+
+      {/* Hero Section - Full Viewport Height */}
+      <section className="relative z-10 flex items-center justify-center h-screen px-6 snap-start">
+        <div className="max-w-7xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-16 text-white/90">
+            <Zap className="w-4 h-4" />
+            <span className="text-sm font-medium">Supercharge Your Productivity</span>
+          </div>
+
+          {/* Main Headline - Adjusted size */}
+          <h1 className="font-['NeueMontreal'] text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium text-white mb-8 leading-tight">
+            Your brain is a <span className="font-['Kalam'] italic font-normal text-white">mess</span>.
+            <br />
+            Your prompt doesn't have to be.
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-300 font-light mb-6 leading-relaxed">
-            Turn messy prompts into perfect ones
-          </p>
           
-        </div>
-
-        {/* Video Demo */}
-        <div className="w-full max-w-4xl mx-auto mb-12">
-          <video 
-            className="w-full rounded-xl shadow-2xl"
-            autoPlay 
-            loop 
-            muted
-            playsInline
-          >
-            <source src="/recording.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        {/* Key Benefits */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-white">⚡ Instant</h3>
-              <p className="text-gray-400">Cmd + Shift + P</p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-white">🎯 Smart</h3>
-              <p className="text-gray-400">Understands your intent</p>
-            </div>
-            <div className="space-y-2">
-              <h3 className="text-xl font-semibold text-white">✨ Perfect</h3>
-              <p className="text-gray-400">Professional results</p>
-            </div>
-          </div>
-        </div>
-
-        {/* How It Works - Simple */}
-        {/* <div className="max-w-2xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold text-white mb-8">How it works</h2>
-          <div className="space-y-4 text-left">
-            <div className="flex items-start space-x-4">
-              <span className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">1</span>
-              <p className="text-gray-300">Type your messy prompt anywhere</p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <span className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">2</span>
-              <p className="text-gray-300">Hit <code className="bg-gray-800 px-2 py-1 rounded text-sm">Cmd + Shift + P</code></p>
-            </div>
-            <div className="flex items-start space-x-4">
-              <span className="bg-white text-black rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">3</span>
-              <p className="text-gray-300">Get a polished, professional prompt instantly</p>
-            </div>
-          </div>
-        </div> */}
-
-        {/* Download CTA */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <a 
-            href="https://github.com/MynkSinghal/prompt-polish/releases/download/PromptPolish/PromptPolish-0.1.0.dmg" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-white text-black hover:bg-gray-200 text-xl font-bold px-12 py-4 rounded-full transition-all hover:scale-105 mb-6 cursor-pointer"
-          >
-            Download PromptPolish
-          </a>
-          <p className="text-gray-500 text-sm">Free • No signup required</p>
-        </div>
-
-        {/* Social Proof / Value */}
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-xl text-gray-300 mb-4">
-            Better prompts = Better results
-          </p>
-          <p className="text-gray-400">
-            Stop wasting time crafting prompts. Get straight to great AI outputs.
+          <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-5xl mx-auto leading-relaxed mb-16 font-light">
+            Forget prompt engineering — just write like you normally do, and let us translate your messy thoughts into powerful prompts that get results.
           </p>
         </div>
+      </section>
 
-      </div>
+      {/* Demo Video Section */}
+      <section className="relative z-10 flex items-center justify-center h-screen px-6 snap-start">
+        <div className="max-w-7xl mx-auto text-center">
+          
+          {/* Title Section */}
+          <div className="mb-12">
+            <h1 className="font-['NeueMontreal'] text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-8 leading-tight">
+              See <span className="font-bold text-white">PromptPolish</span> in <span className="font-['Kalam'] italic font-normal text-white">action</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-5xl mx-auto leading-relaxed font-light">
+              Install Chrome extension, Select your text, right-click → <span className="inline-flex items-center gap-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 text-white/90 font-medium text-base">"Polish with PromptPolish"</span> to clean up your thoughts, sharpen your prompts, and get AI answers that actually make sense — all in one magical click.
+            </p>
+          </div>
+
+          {/* Video Demo Container */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Video Player with Glassmorphism Frame */}
+            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 shadow-2xl">
+              {/* Video Container */}
+              <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video">
+                
+                {/* Video Player */}
+                <video
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src="/recording.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* Download Section */}
+      <section className="relative z-10 px-6 h-screen flex items-center justify-center snap-start">
+        <div className="max-w-4xl mx-auto text-center">
+                      <h2 className="font-['NeueMontreal'] text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-white mb-12 leading-tight">
+            Bad prompts = bad answers.
+            <br />
+            Download the <span className="font-['Kalam'] italic font-normal text-white">fix</span>.
+          </h2>
+          
+          {/* Download Button */}
+          <div className="mt-16">
+            <button className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-6 py-3 text-white/90 font-medium text-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+              <span className="text-lg font-medium">Download PromptPolish</span>
+            </button>
+          </div>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl lg:text-3xl text-white/70 mt-8 font-light">
+            Free Chrome extension • Instant results • Zero setup required
+          </p>
+        </div>
+      </section>
+
+
+
+
+
+
     </div>
   );
 };
